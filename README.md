@@ -1,6 +1,6 @@
 
-````
-# Kwaderno
+``
+## Kwaderno
 
 Kwaderno is a minimalist journaling app built with **Laravel** and styled with **TailwindCSS**. It provides a simple and elegant way to capture thoughts, organize notes, and reflect on your day — with a strong focus on privacy and usability.
 
