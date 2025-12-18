@@ -97,4 +97,6 @@ php artisan test
 
 Pull requests are welcome. For major changes, please open an issue to discuss your proposed updates or improvements.
 
+Author: Philanthropist Jay
+
 ---
