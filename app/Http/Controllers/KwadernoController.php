@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kwaderno;
-use App\Http\Request\KwadernoRequest;
+use App\Http\Requests\KwadernoRequest;
 
 class KwadernoController extends Controller
 {
@@ -12,7 +12,9 @@ class KwadernoController extends Controller
      */
     public function index()
     {
-        return view('kwadernos.index');
+        return view('kwadernos.index', [
+            'kwadernos' => Kwaderno::all()
+        ]);
     }
 
     /**
@@ -28,7 +30,10 @@ class KwadernoController extends Controller
      */
     public function store(KwadernoRequest $request)
     {
-        return redirect()->route('kwadernos.index');
+        Kwaderno::create($request->validated());
+        return redirect()->route('kwadernos.index', [
+            'kwadernos' => Kwaderno::all()
+        ]);
     }
 
     /**
@@ -52,6 +57,7 @@ class KwadernoController extends Controller
      */
     public function update(KwadernoRequest $request, Kwaderno $kwaderno)
     {
+        $kwaderno->update($request->validated());
         return redirect()->route('kwadernos.index');
     }
 
@@ -60,6 +66,9 @@ class KwadernoController extends Controller
      */
     public function destroy(Kwaderno $kwaderno)
     {
-        return redirect()->route('kwadernos.index');
+        $kwaderno->delete();
+        return redirect()->route('kwadernos.index', [
+            'kwadernos' => Kwaderno::all()
+        ]);
     }
 }
